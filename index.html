@@ -1,28 +1,36 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>نظام أمن الفندق</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="auth.js"></script>
-</head>
-<body>
-  <header>
-    <h1>نظام أمن الفورسيزون</h1>
-    <button onclick="logout()">تسجيل الخروج</button>
-  </header>
-
-  <main>
-    <p>مرحباً بك، تم تسجيل دخولك بنجاح!</p>
-    <!-- هنا تضيف أي أدوات أو إدخالات لاحقاً -->
-  </main>
-
+  <script src="auth.js" defer></script>
   <script>
-    function logout() {
-      localStorage.removeItem("auth");
-      location.href = "login.html";
+    window.onload = function () {
+      checkLogin(); // السماح لأي مستخدم بالدخول
+      const user = getCurrentUser();
+      document.getElementById("roleDisplay").innerText = `أهلاً ${user.username} (${user.role})`;
+
+      if (user.role === "admin") {
+        document.getElementById("adminSettings").style.display = "inline";
+      }
     }
   </script>
+  <style>
+    body { direction: rtl; padding: 20px; font-family: Arial; }
+    .top-bar { display: flex; justify-content: space-between; align-items: center; }
+    button { padding: 6px 12px; margin: 5px; }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div id="roleDisplay"></div>
+    <div>
+      <button onclick="logout()">تسجيل الخروج</button>
+      <button id="adminSettings" onclick="alert('إعدادات الأدمن') " style="display:none;">⚙️ الإعدادات</button>
+    </div>
+  </div>
+
+  <h2>لوحة تحكم الأمن</h2>
+  <!-- أكمل محتوى تسجيل البيانات هنا -->
 </body>
 </html>
