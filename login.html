@@ -38,23 +38,24 @@
             const password = document.getElementById("password").value;
 
             if (username === "admin" && password === "admin123") {
-                localStorage.setItem("role", "admin");
-                alert("تم تسجيل الدخول كأدمن");
-                showLogout();
-                window.location.href = "index.html";
-            } else if (username === "supervisor" && password === "super123") {
-                localStorage.setItem("role", "supervisor");
-                alert("تم تسجيل الدخول كمشرف");
-                showLogout();
-                window.location.href = "index.html";
-            } else if (username === "guard" && password === "guard123") {
-                localStorage.setItem("role", "guard");
-                alert("تم تسجيل الدخول كفرد أمن");
-                showLogout();
-                window.location.href = "index.html";
-            } else {
-                alert("اسم المستخدم أو كلمة المرور غير صحيحة");
-            }
+            if (username === "admin" && password === "admin123") {
+    localStorage.setItem("role", "admin");
+    alert("تم تسجيل الدخول كأدمن");
+    showLogout();
+    window.location.href = "admin_dashboard.html"; // صفحة إعدادات المدير
+} else if (username === "supervisor" && password === "super123") {
+    localStorage.setItem("role", "supervisor");
+    alert("تم تسجيل الدخول كمشرف");
+    showLogout();
+    window.location.href = "index.html"; // صفحة تسجيل بيانات الضيف
+} else if (username === "guard" && password === "guard123") {
+    localStorage.setItem("role", "guard");
+    alert("تم تسجيل الدخول كفرد أمن");
+    showLogout();
+    window.location.href = "index.html"; // صفحة تسجيل بيانات الضيف
+} else {
+    alert("اسم المستخدم أو كلمة المرور غير صحيحة");
+}
         }
 
         function logout() {
