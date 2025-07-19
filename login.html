@@ -1,22 +1,20 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>تسجيل الدخول - أمن الفورسيزون</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>تسجيل الدخول</title>
+  <script src="auth.js" defer></script>
+  <style>
+    body { font-family: Arial; direction: rtl; text-align: center; margin-top: 100px; }
+    input { margin: 10px; padding: 8px; width: 200px; }
+    button { padding: 8px 16px; }
+  </style>
 </head>
 <body>
-  <div class="login-container">
-    <h2>تسجيل الدخول</h2>
-    <form onsubmit="return login(event)">
-      <input type="text" id="username" placeholder="اسم المستخدم" required />
-      <input type="password" id="password" placeholder="كلمة المرور" required />
-      <button type="submit">دخول</button>
-    </form>
-    <p id="error" class="error"></p>
-  </div>
-
-  <script src="script.js"></script>
+  <h2>تسجيل الدخول إلى نظام الأمن</h2>
+  <input type="text" id="username" placeholder="اسم المستخدم"><br>
+  <input type="password" id="password" placeholder="كلمة المرور"><br>
+  <button onclick="login()">دخول</button>
+  <p id="error" style="color: red;"></p>
 </body>
 </html>
