@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>إدارة المستخدمين</title>
+  <link rel="stylesheet" href="../style/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>إدارة المستخدمين</h1>
 
+    <div class="user-form">
+      <h2>إضافة مستخدم جديد</h2>
+      <form id="addUserForm">
+        <input type="text" placeholder="اسم المستخدم" required id="username" />
+        <input type="password" placeholder="كلمة المرور" required id="password" />
+        <select id="role">
+          <option value="admin">أدمن</option>
+          <option value="supervisor">مشرف</option>
+          <option value="security">فرد أمن</option>
+        </select>
+        <button type="submit">إضافة</button>
+      </form>
+    </div>
+
+    <hr>
+
+    <div class="user-list">
+      <h2>قائمة المستخدمين</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>الاسم</th>
+            <th>الرتبة</th>
+            <th>خيارات</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody">
+          <!-- بيانات المستخدمين ستظهر هنا -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
