@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>لوحة التحكم - Four Seasons</title>
+  <link rel="stylesheet" href="../styles/style.css" />
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      direction: rtl;
+      background-color: #f4f6f8;
+      margin: 0;
+    }
+    .navbar {
+      background-color: #2c3e50;
+      padding: 10px 20px;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+    .dashboard {
+      padding: 30px;
+    }
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .logout-btn {
+      background-color: #e74c3c;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
 
+  <div class="navbar">
+    <h1>لوحة التحكم - Four Seasons</h1>
+    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+  </div>
+
+  <div class="dashboard">
+    <div class="card">
+      <h2>مرحبًا بك، <span id="roleLabel"></span></h2>
+      <p>استخدم القوائم أعلاه للانتقال إلى الصفحات الأخرى.</p>
+    </div>
+
+    <div class="card" id="adminSection" style="display: none;">
+      <h3>إعدادات الأدمن</h3>
+      <ul>
+        <li><a href="../settings/settings.html">ضبط الإعدادات</a></li>
+        <li><a href="../users/users.html">إدارة المستخدمين</a></li>
+      </ul>
+    </div>
+
+    <div class="card" id="supervisorSection" style="display: none;">
+      <h3>لوحة المشرف</h3>
+      <p>هنا يتم متابعة أفراد الأمن والتقارير.</p>
+    </div>
+
+    <div class="card" id="guardSection" style="display: none;">
+      <h3>لوحة فرد الأمن</h3>
+      <p>هنا تدخل بيانات السيارات والضيوف.</p>
+    </div>
+  </div>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("role");
+      window.location.href = "../login/login.html";
+    }
+
+    // عرض القسم بناءً على الدور
+    const role = localStorage.getItem("role");
+    const roleLabel = document.getElementById("roleLabel");
+
+    if (!role) {
+      alert("من فضلك قم بتسجيل الدخول أولاً.");
+      window.location.href = "../login/login.html";
+    } else {
+      roleLabel.textContent = role === "admin" ? "أدمن" : role === "supervisor" ? "مشرف" : "فرد أمن";
+      if (role === "admin") {
+        document.getElementById("adminSection").style.display = "block";
+      } else if (role === "supervisor") {
+        document.getElementById("supervisorSection").style.display = "block";
+      } else if (role === "guard") {
+        document.getElementById("guardSection").style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
