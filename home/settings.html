@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>إعدادات النظام</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>لوحة الإعدادات</h1>
+    <nav>
+      <a href="../home/index.html">الرئيسية</a>
+      <a href="../login/login.html" onclick="logout()">تسجيل الخروج</a>
+    </nav>
+  </header>
 
+  <main class="settings-container">
+    <h2>إعدادات النظام</h2>
+
+    <section>
+      <label for="site-theme">اختيار الثيم:</label>
+      <select id="site-theme" onchange="changeTheme()">
+        <option value="default">افتراضي</option>
+        <option value="dark">داكن</option>
+        <option value="light">فاتح</option>
+      </select>
+    </section>
+
+    <section>
+      <label for="system-time">ضبط الوقت:</label>
+      <input type="time" id="system-time">
+    </section>
+
+    <section>
+      <label for="system-date">ضبط التاريخ:</label>
+      <input type="date" id="system-date">
+    </section>
+
+    <section>
+      <label>الذكاء الاصطناعي:</label>
+      <button onclick="toggleAI()">تشغيل/إيقاف AI</button>
+    </section>
+
+    <button onclick="saveSettings()">حفظ التغييرات</button>
+  </main>
+
+  <script>
+    function logout() {
+      localStorage.clear();
+      window.location.href = "../login/login.html";
+    }
+
+    function changeTheme() {
+      const theme = document.getElementById("site-theme").value;
+      alert("تم تغيير الثيم إلى: " + theme);
+      // احفظ الإعداد في localStorage مثلاً
+    }
+
+    function toggleAI() {
+      alert("تم تغيير وضع الذكاء الاصطناعي");
+    }
+
+    function saveSettings() {
+      alert("تم حفظ الإعدادات بنجاح");
+    }
+
+    // حماية الصفحة - فقط الأدمن يدخل
+    const role = localStorage.getItem("role");
+    if (role !== "admin") {
+      alert("هذه الصفحة مخصصة للأدمن فقط");
+      window.location.href = "../home/index.html";
+    }
+  </script>
+</body>
+</html>
