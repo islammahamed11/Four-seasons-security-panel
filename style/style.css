@@ -1,1 +1,106 @@
+/* === أساسيات التنسيق العامة === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
 
+/* === ترويسة الصفحات === */
+header {
+  background-color: #003366;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* === الروابط والـ navbar === */
+.navbar {
+  background-color: #004080;
+  padding: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* === الحاوية الرئيسية === */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+/* === نمط أزرار موحد === */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #0066cc;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #0055aa;
+}
+
+/* === تنسيق النموذج (Forms) === */
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input, form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* === جدول المستخدمين أو الضيوف === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+table th {
+  background-color: #eeeeee;
+}
+
+/* === إعدادات خاصة بلوحة التحكم === */
+.dashboard-box {
+  background-color: #eef;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 5px solid #0066cc;
+}
